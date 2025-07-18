@@ -79,6 +79,7 @@ const AccountStep: React.FC<StepProps> = ({ onPrev, onNext, setFormData, formDat
         <div className="step-actions">
                     <Space>
                     <Button
+                        id="btnAccountPrev"
                         onClick={onPrev}
                         size="large"
                         icon={<ArrowLeftOutlined />}
@@ -87,6 +88,7 @@ const AccountStep: React.FC<StepProps> = ({ onPrev, onNext, setFormData, formDat
                     </Button>
 
                     <Button
+                        id="btnAccountNext"
                         type="primary"
                         onClick={handleNext}
                         size="large"

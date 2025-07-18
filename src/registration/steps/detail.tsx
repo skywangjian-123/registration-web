@@ -92,7 +92,7 @@ const DetailStep: React.FC<StepProps> = ({ onNext, onPrev, setFormData, formData
         label="Country"
         rules={[{ required: true, message: 'Please select your country' }]}
       >
-        <Select placeholder="Select a country">
+        <Select showSearch placeholder="Select a country">
           {COUNTRIES.map((item)=><Option value={item.value}>{item.label}</Option>)}
         </Select>
       </Form.Item>
@@ -103,7 +103,7 @@ const DetailStep: React.FC<StepProps> = ({ onNext, onPrev, setFormData, formData
         label="Gender"
         rules={[{ required: true, message: 'Please select your gender' }]}
       >
-        <Select placeholder="Select a gender">
+        <Select showSearch placeholder="Select a gender">
           {GENDERS.map((item)=><Option value={item.value}>{item.label}</Option>)}
         </Select>
       </Form.Item>
@@ -133,6 +133,7 @@ const DetailStep: React.FC<StepProps> = ({ onNext, onPrev, setFormData, formData
         <div className="step-actions">
           <Space>
           <Button 
+            id="btnDetailPrev"
             onClick={onPrev} 
             size="large"
             icon={<ArrowLeftOutlined />}
@@ -141,6 +142,7 @@ const DetailStep: React.FC<StepProps> = ({ onNext, onPrev, setFormData, formData
           </Button>
           
           <Button 
+            id="btnDetailNext"
             type="primary" 
             onClick={handleNext} 
             size="large"

@@ -103,6 +103,7 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
                         onClick={handleNext}
                         size="large"
                         icon={<ArrowRightOutlined />}
+                        id="btnBasicInfoNext"
                     >
                         Next
                     </Button>

@@ -14,8 +14,8 @@ const BirthdaySelector = ({ form }: BirthdaySelectsProps) => {
 
   // Generate years (1900 - current year)
   const years: number[] = Array.from(
-    { length: new Date().getFullYear() - 1899 },
-    (_, i) => new Date().getFullYear() - i
+    { length: new Date().getFullYear() - 1917 },
+    (_, i) => new Date().getFullYear() - 18 - i
   );
 
   const months = [
@@ -58,7 +58,7 @@ const BirthdaySelector = ({ form }: BirthdaySelectsProps) => {
             name="birthYear"
             rules={[{ required: true, message: 'Year required' }]}
           >
-            <Select placeholder="Year" options={years.map(y => ({ value: y, label: y }))} />
+            <Select showSearch placeholder="Year" options={years.map(y => ({ value: y, label: y }))} />
           </Form.Item>
         </Col>
         
@@ -67,7 +67,7 @@ const BirthdaySelector = ({ form }: BirthdaySelectsProps) => {
             name="birthMonth"
             rules={[{ required: true, message: 'Month required' }]}
           >
-            <Select placeholder="Month" options={months} />
+            <Select showSearch placeholder="Month" options={months} />
           </Form.Item>
         </Col>
         
@@ -77,6 +77,7 @@ const BirthdaySelector = ({ form }: BirthdaySelectsProps) => {
             rules={[{ required: true, message: 'Day required' }]}
           >
             <Select 
+              showSearch
               placeholder="Day" 
               disabled={!year || !month}
               options={days.map(d => ({ value: d, label: d }))}
