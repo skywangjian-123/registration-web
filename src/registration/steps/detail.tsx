@@ -43,7 +43,7 @@ const DetailStep: React.FC<StepProps> = ({ onNext, onPrev, setFormData, formData
           detail: {
             country: values.country,
             gender: values.gender,
-            avatar: values.avatar
+            avatar: values.avatar?.length?values.avatar[0].name:''
           }
         }));
         onNext();

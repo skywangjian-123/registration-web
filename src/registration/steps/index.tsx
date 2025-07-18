@@ -2,13 +2,6 @@
 import React from 'react';
 import { Steps } from 'antd';
 import { RegistrationStep } from '../interfaces';
-import { 
-  UserOutlined, 
-  IdcardOutlined, 
-  SettingOutlined, 
-  CheckCircleOutlined
-} from '@ant-design/icons';
-import { ALL_STEPS } from '../consts';
 
 const { Step } = Steps;
 
@@ -26,16 +19,12 @@ const RegistrationSteps: React.FC<{
   return (
     <Steps 
       current={stepIndex[currentStep]} 
-      onChange={(index) => {
-        const steps: RegistrationStep[] = ALL_STEPS;
-        onStepChange(steps[index]);
-      }}
       className="custom-steps"
     >
-      <Step title="Basic Info" icon={<IdcardOutlined />} />
-      <Step title="Details" icon={<SettingOutlined />} />
-      <Step title="Account" icon={<UserOutlined />} />
-      <Step title="Confirmation" icon={<CheckCircleOutlined />} />
+      <Step title="Basic Info"  />
+      <Step title="Details"  />
+      <Step title="Account"  />
+      <Step title="Confirmation" />
     </Steps>
   );
 };
