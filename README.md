@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 ### Run unit test on local
 `npm test`
 
-antd has compitiable issue with @testing-library/, need more investigation, so use cypress to e2e test.
+antd has compitiable issue with @testing-library/react, need more investigation, so use cypress to do e2e test.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
