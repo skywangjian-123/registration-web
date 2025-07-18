@@ -28,3 +28,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Run cypress e2e test
 `npm run e2e:run`
+
+### Screenshot
+![Screenshot](./screenshot.png)
