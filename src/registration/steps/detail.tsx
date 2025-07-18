@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { Button, Form, Radio, Typography, Space, Select, Upload, message } from 'antd';
+import { Button, Form, Typography, Space, Select, Upload, message } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined, LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { StepProps } from '../interfaces';
 import type { GetProp, UploadProps } from 'antd';

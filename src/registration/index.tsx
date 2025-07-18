@@ -43,7 +43,7 @@ const RegistrationForm: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentStep(ALL_STEPS[currentIndex - 1]);
     }
-  }, [currentStep]);
+  }, [getCurrentIndex]);
 
   const handleSubmit = () => {
     messageApi.open({

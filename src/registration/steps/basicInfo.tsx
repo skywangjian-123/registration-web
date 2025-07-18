@@ -45,7 +45,10 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
                     basicInfo: {
                         firstName: values.firstName,
                         lastName: values.lastName,
-                        birthday: values.birthday
+                        birthday: values.birthday,
+                        birthYear: values.birthYear,
+                        birthMonth: values.birthMonth,
+                        birthDay: values.birthDay,
                     }
                 }));
                 onNext();
