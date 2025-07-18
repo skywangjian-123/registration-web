@@ -17,7 +17,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Run unit test on local
-`npm test`
+`npm test -- --watchAll`
 
 antd has compitiable issue with @testing-library/react, need more investigation, so use cypress to do e2e test.
 Launches the test runner in the interactive watch mode.\
