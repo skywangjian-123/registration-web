@@ -1,5 +1,4 @@
 # react specific
-/public/
 /coverage/
 
 # Node modules and dependency files
