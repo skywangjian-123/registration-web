@@ -1,5 +1,6 @@
 # react specific
 /coverage/
+/.nyc_output
 
 # Node modules and dependency files
 /node_modules/
