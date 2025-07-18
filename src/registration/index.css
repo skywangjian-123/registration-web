@@ -1,0 +1,175 @@
+.registration-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #1890ff;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.steps-container {
+  margin-bottom: 40px;
+}
+
+.custom-steps .ant-steps-item-process .ant-steps-item-icon {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.custom-steps .ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon {
+  color: white;
+}
+
+.form-card {
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border: none;
+}
+
+.steps-content {
+  min-height: 300px;
+  padding: 30px 20px;
+}
+
+.steps-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 15px;
+}
+
+.next-button, .submit-button {
+  background: linear-gradient(135deg, #1890ff, #722ed1);
+  border: none;
+  padding: 0 32px;
+  height: 40px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.next-button:hover, .submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+.prev-button {
+  border-color: #d9d9d9;
+  color: #666;
+}
+
+.name-row {
+  display: flex;
+  gap: 20px;
+}
+
+.name-item {
+  flex: 1;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.confirmation-container {
+  padding: 10px;
+}
+
+.info-section {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.info-section h3 {
+  color: #1890ff;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.progress-container {
+  position: relative;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, #1890ff, #722ed1);
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  text-align: center;
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .registration-container {
+    padding: 15px;
+  }
+  
+  .name-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps-action {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .prev-button, .next-button, .submit-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
