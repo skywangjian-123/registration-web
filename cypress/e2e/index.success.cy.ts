@@ -1,6 +1,6 @@
 import { selectOption } from "../utils";
 
-describe('Registration Form Test', () => {
+describe('Registration Form Success Test', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000');
     });

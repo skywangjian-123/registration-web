@@ -1,6 +1,6 @@
 import { selectOption } from "../utils";
 
-describe('Registration Form Test', () => {
+describe('Registration Form Fail Test', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000');
     });
@@ -56,5 +56,29 @@ describe('Registration Form Test', () => {
         cy.get('#confirmPassword').type('123456789', { force: true });
         cy.get('#btnAccountNext').click();
         cy.get('body').should('contain', 'Password is not the same');
+    });
+
+    it('Failed Case - Email', () => {
+        //basic info
+        cy.get('#firstName').type('Sky');
+        cy.get('#lastName').type('Wang');
+
+        selectOption('#birthYear', '2003');
+        selectOption('#birthMonth', 'May');
+        cy.get('#birthDay').type('2').type('{enter}');
+
+        cy.get('#btnBasicInfoNext').click();
+
+        //detail
+        cy.get('#country').type('ch', { force: true }).type('{enter}');
+        cy.get('#gender').type('f', { force: true }).type('{enter}');
+        cy.get('#btnDetailNext').click();
+
+        //account
+        cy.get('#email').type('skywangjian123', { force: true });
+        cy.get('#password').type('12345678', { force: true });
+        cy.get('#confirmPassword').type('12345678', { force: true });
+        cy.get('#btnAccountNext').click();
+        cy.get('body').should('contain', 'please input valid email address');
     });
 });
