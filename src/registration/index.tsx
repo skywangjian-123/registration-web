@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Steps, Card, message, Typography, notification } from 'antd';
+import React, { useState, useCallback } from 'react';
+import { Card, message, Typography } from 'antd';
 import './index.css';
 import { RegistrationStep, FormData } from './interfaces';
 import AccountStep from './steps/account';
@@ -25,26 +25,25 @@ const RegistrationForm: React.FC = () => {
     setCurrentStep(step);
   };
 
-  const getCurrentIndex = () =>{
+  const getCurrentIndex = useCallback(() =>{
     const steps: RegistrationStep[] = ALL_STEPS;
     const currentIndex = steps.indexOf(currentStep);
-    console.log('current step', currentStep, 'current index', currentIndex, 'form data', formData);
     return currentIndex;
-  }
+  }, [currentStep])
 
-  const nextStep = () => {
+  const nextStep = useCallback(() => {
     const currentIndex = getCurrentIndex();
     if (currentIndex < ALL_STEPS.length - 1) {
       setCurrentStep(ALL_STEPS[currentIndex + 1]);
     }
-  };
+  }, [getCurrentIndex]);
 
-  const prevStep = () => {
+  const prevStep = useCallback(() => {
     const currentIndex = getCurrentIndex();
     if (currentIndex > 0) {
       setCurrentStep(ALL_STEPS[currentIndex - 1]);
     }
-  };
+  }, [currentStep]);
 
   const handleSubmit = () => {
     messageApi.open({
