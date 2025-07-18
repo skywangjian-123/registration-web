@@ -72,6 +72,7 @@ const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
                     </Button>
 
                     <Button
+                        id="btnSubmit"
                         type="primary"
                         onClick={onSubmit}
                         size="large"
