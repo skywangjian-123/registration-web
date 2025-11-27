@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { Card, message, Typography } from 'antd';
+import { Card, message, Typography, Select } from 'antd';
+import { useTranslation } from 'react-i18next';
 import './index.css';
 import { RegistrationStep, FormData } from './interfaces';
 import AccountStep from './steps/account';
@@ -20,6 +21,12 @@ const RegistrationForm: React.FC = () => {
     detail: { country: '', gender: '', avatar: '' },
     account: { email: '', password: '', confirmPassword: '' },
   });
+  const { t, i18n } = useTranslation();
+  const { Option } = Select;
+
+  const handleLanguageChange = (value: string) => {
+    i18n.changeLanguage(value);
+  };
 
   const handleStepChange = (step: RegistrationStep) => {
     setCurrentStep(step);
@@ -48,7 +55,7 @@ const RegistrationForm: React.FC = () => {
   const handleSubmit = () => {
     messageApi.open({
       type: 'success',
-      content: 'Submit Successfully',
+      content: t('confirmation.submitSuccess'),
     });
     //password needs to encrypt when submit to server;
     formData.account.password="******";
@@ -104,8 +111,18 @@ const RegistrationForm: React.FC = () => {
   return (
     <div className="registration-container">
       {contextHolder}
+      <div style={{ textAlign: 'right', marginBottom: '20px', padding: '0 20px' }}>
+        <Select
+          value={i18n.language}
+          onChange={handleLanguageChange}
+          style={{ width: 120 }}
+        >
+          <Option value="en">English</Option>
+          <Option value="zh">中文</Option>
+        </Select>
+      </div>
       <div className="header">
-        <Title level={2} className="title">Create Account</Title>
+        <Title level={2} className="title">{t('createAccount')}</Title>
       </div>
       
       <div className="steps-container">
@@ -124,12 +141,12 @@ const RegistrationForm: React.FC = () => {
           width: `${(Object.keys(formData).indexOf(currentStep) + 1) * 25}%` 
         }}></div>
         <div className="progress-text">
-          {Object.keys(formData).indexOf(currentStep) + 1} / 4 Steps
+          {t('steps.progress', { current: Object.keys(formData).indexOf(currentStep) + 1, total: 4 })}
         </div>
       </div>
       
       <div className="footer">
-        <Text>Already has account?<a href=" ">Login</a ></Text>
+        <Text>{t('footer.alreadyHaveAccount')}<a href=" ">{t('footer.login')}</a ></Text>
       </div>
     </div>
   );

@@ -1,0 +1,62 @@
+{
+  "basicInfo": {
+    "title": "Basic Information",
+    "subtitle": "Please input your basic information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "birthday": "Birthday",
+    "next": "Next"
+  },
+  "detail": {
+    "title": "Detail Information",
+    "subtitle": "Please input your detail information",
+    "country": "Country",
+    "gender": "Gender",
+    "avatar": "Avatar",
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "account": {
+    "title": "Account",
+    "subtitle": "Please input your account information",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "confirmation": {
+    "title": "Confirmation",
+    "subtitle": "Please confirm your information",
+    "prev": "Prev",
+    "submit": "Submit",
+    "success": "Submit Successfully",
+    "submitSuccess": "Submit Successfully"
+  },
+  "validation": {
+    "required": "This field is required",
+    "firstName": "Please input your first name",
+    "lastName": "Please input your last name",
+    "birthdayRequired": "Birthday is required",
+    "birthdayFormat": "Invalid date format",
+    "birthdayInvalid": "Invalid date",
+    "birthdayAge": "Must be at least 18 years old",
+    "emailRequired": "Please input your email address",
+    "emailValid": "Please input valid email address",
+    "passwordRequired": "Please input your password",
+    "passwordMin": "8 characters at least",
+    "confirmPasswordRequired": "Please input confirm password",
+    "confirmPasswordMatch": "Password is not the same"
+  },
+  "steps": {
+    "basicInfo": "Basic Info",
+    "detail": "Detail",
+    "account": "Account",
+    "confirmation": "Confirmation",
+    "progress": "{{current}} / {{total}} Steps"
+  },
+  "footer": {
+    "alreadyHaveAccount": "Already have an account?",
+    "login": "Login"
+  }
+}
