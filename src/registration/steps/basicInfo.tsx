@@ -6,33 +6,35 @@ import { StepProps } from '../interfaces';
 import BirthdaySelector from '../../controls/birthdaySelector';
 import dayjs from 'dayjs';
 import type { Rule } from 'antd/es/form';
+import { useTranslation } from 'react-i18next';
 
 const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) => {
     const [form] = Form.useForm();
     const { Title, Text } = Typography;
+    const { t } = useTranslation();
 
     // Validation rules for the combined date
     const birthdayRules: Rule[] = [
-        { required: true, message: 'Birthday is required' },
-        () => ({
+        { required: true, message: t('validation.birthdayRequired') },
+        () => ({ 
             validator(_, value: string) {
                 if (!value) return Promise.resolve();
 
                 // Validate date format
                 if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-                    return Promise.reject('Invalid date format');
+                    return Promise.reject(t('validation.birthdayFormat'));
                 }
 
                 const birthDate = dayjs(value);
                 if (!birthDate.isValid()) {
-                    return Promise.reject('Invalid date');
+                    return Promise.reject(t('validation.birthdayInvalid'));
                 }
 
                 const age = dayjs().diff(birthDate, 'year');
                 if (age >= 18) {
                     return Promise.resolve();
                 }
-                return Promise.reject('Must be at least 18 years old');
+                return Promise.reject(t('validation.birthdayAge'));
             },
         }),
     ];
@@ -60,8 +62,8 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
 
     return (
         <div className="step-content">
-            <Title level={4} className="step-title">Basic Information</Title>
-            <Text type="secondary" className="step-subtitle">Please input your basic information</Text>
+            <Title level={4} className="step-title">{t('basicInfo.title')}</Title>
+            <Text type="secondary" className="step-subtitle">{t('basicInfo.subtitle')}</Text>
 
             <Form
                 form={form}
@@ -72,8 +74,8 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
                 <div className="name-row">
                     <Form.Item
                         name="firstName"
-                        label="First Name"
-                        rules={[{ required: true, message: 'Please input your first name' }]}
+                        label={t('basicInfo.firstName')}
+                        rules={[{ required: true, message: t('validation.firstName') }]}
                         className="name-item"
                     >
                         <Input placeholder="John" size="large" />
@@ -81,8 +83,8 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
 
                     <Form.Item
                         name="lastName"
-                        label="Last Name"
-                        rules={[{ required: true, message: 'Please input your last name' }]}
+                        label={t('basicInfo.lastName')}
+                        rules={[{ required: true, message: t('validation.lastName') }]}
                         className="name-item"
                     >
                         <Input placeholder="Wang" size="large" />
@@ -91,7 +93,7 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
 
                 <Form.Item
                     name="birthday"
-                    label="Birthday"
+                    label={t('basicInfo.birthday')}
                     rules={birthdayRules}
                     hidden
                 >
@@ -108,7 +110,7 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
                         icon={<ArrowRightOutlined />}
                         id="btnBasicInfoNext"
                     >
-                        Next
+                        {t('basicInfo.next')}
                     </Button>
                 </div>
             </Form>

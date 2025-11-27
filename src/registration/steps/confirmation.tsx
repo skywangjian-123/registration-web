@@ -4,6 +4,7 @@ import { Button, Typography, Space } from 'antd';
 import { StepProps } from '../interfaces';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
 import { getCountryByCode, getGenderByCode } from '../utils';
+import { useTranslation } from 'react-i18next';
 
 const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
     onPrev,
@@ -11,51 +12,52 @@ const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
     formData
 }) => {
     const { Title, Text } = Typography;
+    const { t } = useTranslation();
 
     return (
         <div className="step-content">
-            <Title level={4} className="step-title">Confirm Your Information</Title>
-            <Text type="secondary" className="step-subtitle">Please check if they are correct</Text>
+            <Title level={4} className="step-title">{t('confirmation.title')}</Title>
+            <Text type="secondary" className="step-subtitle">{t('confirmation.subtitle')}</Text>
 
             <div className="confirmation-container">
                 <div className="info-section">
-                    <Title level={5} className="info-title">Basic Information</Title>
+                    <Title level={5} className="info-title">{t('confirmation.basicInfo')}</Title>
                     <div className="info-item">
-                        <Text strong>Name:</Text>
+                        <Text strong>{t('confirmation.name')}:</Text>
                         <Text>{formData.basicInfo.lastName} {formData.basicInfo.firstName}</Text>
                     </div>
                     <div className="info-item">
-                        <Text strong>Birthday:</Text>
+                        <Text strong>{t('confirmation.birthday')}:</Text>
                         <Text>{formData.basicInfo.birthday}</Text>
                     </div>
                 </div>
 
                 <div className="info-section">
-                    <Title level={5} className="info-title">Detail</Title>
+                    <Title level={5} className="info-title">{t('confirmation.detail')}</Title>
                     <div className="info-item">
-                        <Text strong>Country:</Text>
+                        <Text strong>{t('confirmation.country')}:</Text>
                         <Text>
                             {getCountryByCode(formData.detail.country)}
                         </Text>
                     </div>
                     <div className="info-item">
-                        <Text strong>Gender:</Text>
+                        <Text strong>{t('confirmation.gender')}:</Text>
                         <Text>{getGenderByCode(formData.detail.gender)}</Text>
                     </div>
                     <div className="info-item">
-                        <Text strong>Avatar Picture:</Text>
+                        <Text strong>{t('confirmation.avatar')}:</Text>
                         <Text>{formData.detail.avatar}</Text>
                     </div>
                 </div>
 
                 <div className="info-section">
-                    <Title level={5} className="info-title">Account Information</Title>
+                    <Title level={5} className="info-title">{t('confirmation.accountInfo')}</Title>
                     <div className="info-item">
-                        <Text strong>Email Address:</Text>
+                        <Text strong>{t('confirmation.email')}:</Text>
                         <Text>{formData.account.email}</Text>
                     </div>
                     <div className="info-item">
-                        <Text strong>Password:</Text>
+                        <Text strong>{t('confirmation.password')}:</Text>
                         <Text>••••••••</Text>
                     </div>
                 </div>
@@ -68,7 +70,7 @@ const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
                         size="large"
                         icon={<ArrowLeftOutlined />}
                     >
-                        Prev
+                        {t('confirmation.previous')}
                     </Button>
 
                     <Button
@@ -78,7 +80,7 @@ const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
                         size="large"
                         icon={<CheckOutlined />}
                     >
-                        Submit
+                        {t('confirmation.submit')}
                     </Button>
                 </Space>
 
