@@ -4,6 +4,7 @@ import './index.css';
 import { RegistrationStep, FormData } from './interfaces';
 import AccountStep from './steps/account';
 import BasicInfoStep from './steps/basicInfo';
+import ContactInfoStep from './steps/contactInfo';
 import DetailStep from './steps/detail';
 import ConfirmationStep from './steps/confirmation';
 import RegistrationSteps from './steps';
@@ -17,6 +18,7 @@ const RegistrationForm: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [formData, setFormData] = useState<FormData>({
     basicInfo: { firstName: '', lastName: '', birthday: '' },
+    contactInfo: { phone: '', address: '', emergencyContacts: [] },
     detail: { country: '', gender: '', avatar: '' },
     account: { email: '', password: '', confirmPassword: '' },
   });
@@ -64,6 +66,15 @@ const RegistrationForm: React.FC = () => {
           <BasicInfoStep 
             onNext={nextStep} 
             onPrev={() => {}}
+            setFormData={setFormData} 
+            formData={formData}
+          />
+        );
+      case 'contactInfo':
+        return (
+          <ContactInfoStep 
+            onNext={nextStep} 
+            onPrev={prevStep}
             setFormData={setFormData}
             formData={formData}
           />

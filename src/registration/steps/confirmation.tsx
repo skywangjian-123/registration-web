@@ -31,6 +31,28 @@ const ConfirmationStep: React.FC<StepProps & { onSubmit: () => void }> = ({
                 </div>
 
                 <div className="info-section">
+                    <Title level={5} className="info-title">Contact Information</Title>
+                    <div className="info-item">
+                        <Text strong>Phone Number:</Text>
+                        <Text>{formData.contactInfo.phone}</Text>
+                    </div>
+                    <div className="info-item">
+                        <Text strong>Address:</Text>
+                        <Text>{formData.contactInfo.address}</Text>
+                    </div>
+                    <div className="info-item">
+                        <Text strong>Emergency Contacts:</Text>
+                        <div>
+                            {formData.contactInfo.emergencyContacts.map((contact, index) => (
+                                <div key={index} className="emergency-contact-item">
+                                    <Text>{contact.name} ({contact.relationship}): {contact.phone}</Text>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="info-section">
                     <Title level={5} className="info-title">Detail</Title>
                     <div className="info-item">
                         <Text strong>Country:</Text>
