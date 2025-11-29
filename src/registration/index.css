@@ -106,6 +106,53 @@
   margin-bottom: 15px;
 }
 
+/* Emergency Contacts Styles */
+.emergency-contacts-section {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.emergency-contact-item {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.contact-header .ant-typography {
+  font-weight: 500;
+  color: #262626;
+}
+
+.emergency-contacts-confirmation {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.emergency-contact {
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
 .progress-container {
   position: relative;
   height: 8px;
