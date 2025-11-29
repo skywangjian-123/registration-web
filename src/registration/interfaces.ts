@@ -14,6 +14,18 @@ export interface BasicInfoData {
   birthday: string;
 }
 
+export interface EmergencyContact {
+  name: string;
+  phone: string;
+  relationship: string;
+}
+
+export interface ContactInfoData {
+  phone: string;
+  address: string;
+  emergencyContacts: EmergencyContact[];
+}
+
 export interface DetailData {
   country: string;
   gender: string;
@@ -23,10 +35,11 @@ export interface DetailData {
 export type FormData = {
   account: AccountData;
   basicInfo: BasicInfoData;
+  contactInfo: ContactInfoData;
   detail: DetailData;
 };
 
-export type RegistrationStep = 'basicInfo' | 'detail' | 'account' | 'confirmation';
+export type RegistrationStep = 'basicInfo' | 'contactInfo' | 'detail' | 'account' | 'confirmation';
 
 // step props
 export interface StepProps {

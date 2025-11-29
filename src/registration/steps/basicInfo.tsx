@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { Button, Form, Input, Typography } from 'antd';
+import { Button, Form, Input, Typography, DatePicker } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { StepProps } from '../interfaces';
-import BirthdaySelector from '../../controls/birthdaySelector';
 import dayjs from 'dayjs';
 import type { Rule } from 'antd/es/form';
+import type { Dayjs } from 'dayjs';
+import 'antd/es/date-picker/style';
+
 
 const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) => {
     const [form] = Form.useForm();
@@ -15,20 +17,14 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
     const birthdayRules: Rule[] = [
         { required: true, message: 'Birthday is required' },
         () => ({
-            validator(_, value: string) {
+            validator(_, value: Dayjs) {
                 if (!value) return Promise.resolve();
 
-                // Validate date format
-                if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-                    return Promise.reject('Invalid date format');
-                }
-
-                const birthDate = dayjs(value);
-                if (!birthDate.isValid()) {
+                if (!value.isValid()) {
                     return Promise.reject('Invalid date');
                 }
 
-                const age = dayjs().diff(birthDate, 'year');
+                const age = dayjs().diff(value, 'year');
                 if (age >= 18) {
                     return Promise.resolve();
                 }
@@ -40,15 +36,13 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
     const handleNext = () => {
         form.validateFields()
             .then(values => {
+                const birthday = values.birthday ? values.birthday.format('YYYY-MM-DD') : '';
                 setFormData(prev => ({
                     ...prev,
                     basicInfo: {
                         firstName: values.firstName,
                         lastName: values.lastName,
-                        birthday: values.birthday,
-                        birthYear: values.birthYear,
-                        birthMonth: values.birthMonth,
-                        birthDay: values.birthDay,
+                        birthday: birthday,
                     }
                 }));
                 onNext();
@@ -93,12 +87,15 @@ const BasicInfoStep: React.FC<StepProps> = ({ onNext, setFormData, formData }) =
                     name="birthday"
                     label="Birthday"
                     rules={birthdayRules}
-                    hidden
                 >
-                    <Input />
+                    <DatePicker
+                        size="large"
+                        style={{ width: '100%' }}
+                        placeholder="Select your birthday"
+                        maxDate={dayjs().subtract(18, 'year')}
+                        format="YYYY-MM-DD"
+                    />
                 </Form.Item>
-
-                <BirthdaySelector form={form} />
 
                 <div className="step-actions">
                     <Button

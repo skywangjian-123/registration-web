@@ -11,9 +11,10 @@ const RegistrationSteps: React.FC<{
 }> = ({ currentStep, onStepChange }) => {
   const stepIndex: Record<RegistrationStep, number> = {
     basicInfo: 0,
-    detail: 1,
-    account: 2,
-    confirmation: 3
+    contactInfo: 1,
+    detail: 2,
+    account: 3,
+    confirmation: 4
   };
 
   return (
@@ -22,6 +23,7 @@ const RegistrationSteps: React.FC<{
       className="custom-steps"
     >
       <Step title="Basic Info"  />
+      <Step title="Contact Info"  />
       <Step title="Details"  />
       <Step title="Account"  />
       <Step title="Confirmation" />
