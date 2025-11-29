@@ -4,6 +4,7 @@ import './index.css';
 import { RegistrationStep, FormData } from './interfaces';
 import AccountStep from './steps/account';
 import BasicInfoStep from './steps/basicInfo';
+import ContactInfoStep from './steps/contactInfo';
 import DetailStep from './steps/detail';
 import ConfirmationStep from './steps/confirmation';
 import RegistrationSteps from './steps';
@@ -17,6 +18,7 @@ const RegistrationForm: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [formData, setFormData] = useState<FormData>({
     basicInfo: { firstName: '', lastName: '', birthday: '' },
+    contactInfo: { phone: '', address: '', emergencyContacts: [] },
     detail: { country: '', gender: '', avatar: '' },
     account: { email: '', password: '', confirmPassword: '' },
   });
@@ -68,8 +70,17 @@ const RegistrationForm: React.FC = () => {
             formData={formData}
           />
         );
-      case 'detail':
+      case 'contactInfo':
         return (
+          <ContactInfoStep 
+            onNext={nextStep} 
+            onPrev={prevStep}
+            setFormData={setFormData}
+            formData={formData}
+          />
+        );
+      case 'detail':
+        return ( 
           <DetailStep 
             onNext={nextStep} 
             onPrev={prevStep}
@@ -78,7 +89,7 @@ const RegistrationForm: React.FC = () => {
           />
         );
       case 'account':
-        return (
+        return ( 
           <AccountStep 
             onNext={nextStep} 
             setFormData={setFormData}
@@ -87,7 +98,7 @@ const RegistrationForm: React.FC = () => {
           />
         );
       case 'confirmation':
-        return (
+        return ( 
           <ConfirmationStep 
             onPrev={prevStep}
             onSubmit={handleSubmit}
@@ -121,10 +132,10 @@ const RegistrationForm: React.FC = () => {
       
       <div className="progress-container">
         <div className="progress-bar" style={{ 
-          width: `${(Object.keys(formData).indexOf(currentStep) + 1) * 25}%` 
+          width: `${(Object.keys(formData).indexOf(currentStep) + 1) * 20}%` 
         }}></div>
         <div className="progress-text">
-          {Object.keys(formData).indexOf(currentStep) + 1} / 4 Steps
+          {Object.keys(formData).indexOf(currentStep) + 1} / 5 Steps
         </div>
       </div>
       
