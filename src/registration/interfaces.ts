@@ -20,13 +20,26 @@ export interface DetailData {
   avatar: string;
 }
 
+export interface EmergencyContact {
+  name: string;
+  phone: string;
+  relationship: string;
+}
+
+export interface ContactInfoData {
+  phone: string;
+  address: string;
+  emergencyContacts: EmergencyContact[];
+}
+
 export type FormData = {
   account: AccountData;
   basicInfo: BasicInfoData;
+  contactInfo: ContactInfoData;
   detail: DetailData;
 };
 
-export type RegistrationStep = 'basicInfo' | 'detail' | 'account' | 'confirmation';
+export type RegistrationStep = 'basicInfo' | 'contactInfo' | 'detail' | 'account' | 'confirmation';
 
 // step props
 export interface StepProps {
