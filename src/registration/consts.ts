@@ -1,6 +1,15 @@
 import { RegistrationStep, SelectOption } from "./interfaces";
 
-export const ALL_STEPS: RegistrationStep[] = ['basicInfo', 'detail', 'account', 'confirmation'];
+export const ALL_STEPS: RegistrationStep[] = ['basicInfo', 'contactInfo', 'detail', 'account', 'confirmation'];
+
+export const RELATIONSHIPS: SelectOption[] = [
+  { value: 'spouse', label: 'Spouse' },
+  { value: 'parent', label: 'Parent' },
+  { value: 'child', label: 'Child' },
+  { value: 'sibling', label: 'Sibling' },
+  { value: 'friend', label: 'Friend' },
+  { value: 'colleague', label: 'Colleague' },
+];
 
 
 export const COUNTRIES: SelectOption[] = [
